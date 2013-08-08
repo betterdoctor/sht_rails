@@ -6,7 +6,7 @@ module ShtRails
   module Handlebars
     def self.has_partial?(name)
       if @context.present?
-        current_partials = @context.instance_variable_get(:@partials)
+        current_partials = @context.instance_variable_get(:@partials).instance_variable_get(:@partials)
         return current_partials.key?(name)
       end
 
